@@ -1,0 +1,77 @@
+/*
+ * TCSS 342 Winter 2013
+ * Assignment 3
+ */
+
+package tests;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import util1.BinarySearchTree;
+
+import static org.junit.Assert.*;
+
+/**
+ * Junit test for a few methods in BinarySearchTree class.
+ * 
+ * @author Raymond Luu
+ * @version Winter 2013
+ */
+public class BinarySearchTreeJUnitTest
+{
+  
+  /**
+   * Binary Search Tree to test with.
+   */
+  private BinarySearchTree<Integer> my_binary_search_tree;
+  
+  /**
+   * Set up BinarySearchTree.
+   */
+  @Before
+  public void setUp()
+  {
+    my_binary_search_tree = new BinarySearchTree<Integer>();
+    my_binary_search_tree.insert(1);
+    my_binary_search_tree.insert(13);
+    my_binary_search_tree.insert(15);
+    my_binary_search_tree.insert(8);
+    my_binary_search_tree.insert(3);
+    my_binary_search_tree.insert(10);
+    my_binary_search_tree.insert(14);
+    my_binary_search_tree.insert(16);
+    my_binary_search_tree.insert(9);
+  }
+  
+  // Tests
+  
+  /**
+   * Test countLeafNodes method.
+   */
+  @Test
+  public void testCountLeafNodes()
+  {
+    assertSame("Leaf Nodes should be 4.", my_binary_search_tree.countLeafNodes(), 4);
+  }
+
+  /**
+   * Test countOneChildNodes method.
+   */
+  @Test
+  public void testCountOneChildNodes()
+  {
+    assertSame("Nodes with one child should be two.",
+               my_binary_search_tree.countOneChildNodes(), 2);
+  }
+  
+  /**
+   * Test countTwoChildNodes method.
+   */
+  @Test
+  public void testCountTwoChildNodes()
+  {
+    assertSame("Nodes with two child should be three.",
+               my_binary_search_tree.countTwoChildNodes(), 3);
+  }
+}
